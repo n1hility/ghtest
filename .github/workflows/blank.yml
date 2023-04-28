@@ -25,7 +25,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
       - name: Setup docker host
-        run: echo "DOCKER_HOST=/run/user/$(id -u)/podman/podman.sock" >> "$GITHUB_ENV"
+        run: echo "DOCKER_HOST=unix:///run/user/$(id -u)/podman/podman.sock" >> "$GITHUB_ENV"
 
       # Runs a single command using the runners shell
       - name: Check podman
